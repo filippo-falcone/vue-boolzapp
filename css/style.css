@@ -1,0 +1,85 @@
+/* #region RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* #endregion */
+
+/* #region GENERAL */
+body {
+    height: 100vh;
+    background: linear-gradient(to bottom,
+            #009688 9.375rem,
+            #d4dbda 9.375rem,
+            #d4dbda 100%);
+}
+
+/* #endregion */
+
+/* #region MAIN */
+.container {
+    padding: 1.5rem 0;
+    max-width: 1300px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.row,
+.col {
+    min-height: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-left {
+    width: calc(100% / 3);
+}
+
+.col-right {
+    border-left: 1px solid #b1b1b1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.app-header {
+    min-height: 4.625rem;
+    background-color: #eaeaea;
+
+}
+
+.col-left .app-main {
+    min-height: calc(100% - 4.625rem);
+    background-color: #ffffff;
+}
+
+.col-right .app-main {
+    flex-grow: 1;
+    background-image: url(/img/mine.jpg);
+}
+
+.app-footer {
+    min-height: 4.625rem;
+    background-color: #e5ddd5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notif {
+    min-height: 5.25rem;
+    background-color: #8edafc;
+}
+
+.search {
+    min-height: 3.25rem;
+    background-color: #fafafa;
+}
+
+/* #endregion */
