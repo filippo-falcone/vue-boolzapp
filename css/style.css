@@ -70,7 +70,7 @@ body {
 
 .col-right .app-main {
     flex-grow: 1;
-    background-image: url(/img/mine.jpg);
+    background-image: url(../img/mine.jpg);
 }
 
 .app-footer {
