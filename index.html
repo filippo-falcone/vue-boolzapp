@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzapp!</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- /font awesome -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -17,15 +22,38 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-left">
-                        <div class="app-header"></div>
+                        <div class="app-header">
+                            <div class="user">
+                                <div class="circle circle-small">
+                                    <img src="img/avatar_io.jpg" alt="">
+                                </div>
+                                <span>Filippo</span>
+                            </div>
+                            <div class="action">
+                                <i class=""></i>
+                                <i class="fa-solid fa-message"></i>
+                                <i class=""></i>
+                            </div>
+                        </div>
                         <div class="app-main">
-                            <div class="notif"></div>
+                            <div class="notif">
+                                <div class="circle circle-small">
+                                    <i class="fa-solid fa-bell-slash"></i>
+                                </div>
+                                <div class="text-container">
+                                    <div>Ricevi notifiche di nuovi messaggi</div>
+                                    <a href="#">Attiva notifiche desktop</a>
+                                </div>
+                            </div>
                             <div class="search"></div>
                             <div class="chat-container">
-                                <div class="chat">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque adipisci, accusamus
-                                    deleniti labore reprehenderit, ex voluptatibus placeat mollitia, fuga nostrum natus
-                                    minima fugit. Mollitia, omnis aliquid quaerat illum fugit placeat.
+                                <div class="chat" v-for="contact in contacts">
+                                    <div class="circle circle-big">
+                                        <img src="img/avatar_1.jpg" alt="">
+                                    </div>
+                                    <div class="text-container">
+                                        <div>{{contact.name}}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

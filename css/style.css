@@ -16,6 +16,10 @@ body {
             #d4dbda 100%);
 }
 
+.img {
+    max-width: 100%;
+}
+
 /* #endregion */
 
 /* #region MAIN */
@@ -28,7 +32,7 @@ body {
 
 .row,
 .col {
-    min-height: 100%;
+    height: 100%;
 }
 
 .row {
@@ -41,8 +45,8 @@ body {
 }
 
 .col-right {
+    width: calc(100% - (100% / 3));
     border-left: 1px solid #b1b1b1;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -50,7 +54,12 @@ body {
 
 .app-header {
     min-height: 4.625rem;
+    padding-left: .625rem;
+    padding-right: 1.25rem;
     background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -66,15 +75,48 @@ body {
 
 .app-footer {
     min-height: 4.625rem;
-    background-color: #e5ddd5;
+    background-color: #f3eeea;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.circle {
+    border-radius: 50%;
+}
+
+.circle-small {
+    width: 3.125rem;
+    height: 3.125rem;
+}
+
+.circle-big {
+    width: 3.875rem;
+    height: 3.875rem;
+    margin-right: 20px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
 .notif {
     min-height: 5.25rem;
+    padding-left: 1.25rem;
     background-color: #8edafc;
+    display: flex;
+    align-items: center;
+}
+
+.notif .circle {
+    margin-right: .625rem;
+    background-color: #ffffff;
+    color: #8edafc;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .search {
@@ -82,8 +124,26 @@ body {
     background-color: #fafafa;
 }
 
+.chat-container {
+    overflow-y: scroll;
+}
+
 .chat {
+    padding-left: 1.25rem;
     min-height: 5rem;
+    border-bottom: 1px solid #f5f5f5;
+    display: flex;
+    align-items: center;
+}
+
+.circle img {
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.action {
+    color: #b1b1b1;
 }
 
 /* #endregion */
