@@ -1,4 +1,5 @@
 const { createApp } = Vue;
+const dt = luxon.DateTime;
 
 createApp({
   data() {
@@ -99,14 +100,18 @@ createApp({
     },
     addNewSentMessage() {
       const messageTextTrimmed = this.messageText.trim();
-      const newMessage = { date: '10/01/2020 15:50:00', message: messageTextTrimmed, status: 'sent' };
+      const now = dt.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+      const newMessage = { date: now, message: messageTextTrimmed, status: 'sent' };
       this.contacts[this.activeItem].messages.push(newMessage);
       this.messageText = '';
       setTimeout(this.addNewReceivedMessage, 1000);
     },
     addNewReceivedMessage() {
-      const newReceivedMessage = { date: '10/01/2020 15:50:00', message: 'ok', status: 'received' };
+      const now = dt.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+      const newReceivedMessage = { date: now, message: 'ok', status: 'received' };
       this.contacts[this.activeItem].messages.push(newReceivedMessage);
     }
   },
+  created() {
+  }
 }).mount('#app');
