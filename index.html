@@ -18,54 +18,60 @@
 
 <body>
     <div id="app">
-        <main>
-            <div class="container">
-                <div class="row">
-                    <div class="col col-left">
-                        <div class="app-header">
-                            <div class="user">
-                                <div class="circle circle-small">
-                                    <img src="img/avatar_io.jpg" alt="">
-                                </div>
-                                <span>Filippo</span>
+        <div class="container">
+            <div class="row">
+                <!-- chat list  -->
+                <div class="col col-left">
+                    <div class="app-header">
+                        <div class="user">
+                            <div class="circle circle-small">
+                                <img src="img/avatar_io.jpg" alt="">
                             </div>
-                            <div class="action">
-                                <i class=""></i>
-                                <i class="fa-solid fa-message"></i>
-                                <i class=""></i>
+                            <span>Filippo</span>
+                        </div>
+                        <div class="action">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class=" app-main">
+                        <div class="notif">
+                            <div class="circle circle-small">
+                                <i class="fa-solid fa-bell-slash"></i>
+                            </div>
+                            <div class="text-container">
+                                <div>Ricevi notifiche di nuovi messaggi</div>
+                                <a href="#">Attiva notifiche desktop</a>
                             </div>
                         </div>
-                        <div class="app-main">
-                            <div class="notif">
-                                <div class="circle circle-small">
-                                    <i class="fa-solid fa-bell-slash"></i>
+                        <div class="search">
+                            <button type="button"><i class="fa-solid fa-search"></i></button>
+                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        </div>
+                        <div class="chat-container">
+                            <div class="chat" v-for="contact in contacts">
+                                <div class="circle circle-big">
+                                    <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                                 </div>
                                 <div class="text-container">
-                                    <div>Ricevi notifiche di nuovi messaggi</div>
-                                    <a href="#">Attiva notifiche desktop</a>
-                                </div>
-                            </div>
-                            <div class="search"></div>
-                            <div class="chat-container">
-                                <div class="chat" v-for="contact in contacts">
-                                    <div class="circle circle-big">
-                                        <img src="img/avatar_1.jpg" alt="">
-                                    </div>
-                                    <div class="text-container">
-                                        <div>{{contact.name}}</div>
-                                    </div>
+                                    <div>{{contact.name}}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col col-right">
-                        <div class="app-header"></div>
-                        <div class="app-main"></div>
-                        <div class="app-footer"></div>
-                    </div>
                 </div>
+                <!-- /chat list  -->
+                <!--  chat content  -->
+                <div class="col col-right">
+                    <div class="app-header">
+                    </div>
+                    <div class="app-main"></div>
+                    <div class="app-footer"></div>
+                </div>
+                <!--  /chat content  -->
             </div>
-        </main>
+        </div>
     </div>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
