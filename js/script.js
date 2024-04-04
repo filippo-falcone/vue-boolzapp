@@ -85,7 +85,8 @@ createApp({
       },
       ],
       activeItem: 0,
-      messageText: ''
+      messageText: '',
+      searchText: ''
     };
   },
   methods: {
@@ -110,8 +111,12 @@ createApp({
       const now = dt.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
       const newReceivedMessage = { date: now, message: 'ok', status: 'received' };
       this.contacts[this.activeItem].messages.push(newReceivedMessage);
+    },
+    searchContact() {
+      const searchTextTrimmed = this.searchText.trim();
+      this.contacts.forEach((contact) => {
+        contact.visible = contact.name.toLowerCase().includes(searchTextTrimmed.toLowerCase());
+      });
     }
-  },
-  created() {
   }
 }).mount('#app');

@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzapp!</title>
-    <!-- font awesome -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- /font awesome -->
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- /Font Awesome -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -49,19 +49,23 @@
                             </div>
                         </div>
                         <div class="search">
-                            <button type="button"><i class="fa-solid fa-search"></i></button>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <button type="button" @click="searchContact"><i class="fa-solid fa-search"></i></button>
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchText"
+                                @keyup="searchContact">
                         </div>
                         <div class="chat-container">
-                            <div class="chat" :class="{'active': index == activeItem} "
-                                v-for=" contact, index in contacts" @click="showChat(index)">
-                                <div class="circle circle-big">
-                                    <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
+                            <template v-for=" contact, index in contacts">
+                                <div v-if="contact.visible" class="chat" :class="{'active': index == activeItem} "
+                                    @click="showChat(index)">
+                                    <div class="circle circle-big">
+                                        <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
+                                    </div>
+                                    <div class="text-container">
+                                        <div>{{contact.name}}</div>
+                                        <small>{{formatClock(contact.messages[contact.messages.length - 1])}}</small>
+                                    </div>
                                 </div>
-                                <div class="text-container">
-                                    <div>{{contact.name}}</div>
-                                </div>
-                            </div>
+                            </template>
                         </div>
                     </div>
                 </div>

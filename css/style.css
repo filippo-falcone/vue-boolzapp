@@ -130,6 +130,10 @@ body {
     align-items: center;
 }
 
+.notif .text-container a {
+    color: #6b7376;
+}
+
 .search {
     height: 3.25rem;
     padding: .625rem;
@@ -160,6 +164,10 @@ body {
     overflow-y: auto;
 }
 
+.active {
+    background-color: #e9ebeb;
+}
+
 .chat {
     padding-left: 1.25rem;
     height: 5rem;
@@ -169,8 +177,18 @@ body {
     cursor: pointer;
 }
 
-.active {
-    background-color: #e9ebeb;
+.chat .text-container {
+    padding-top: .3125rem;
+    padding-right: .3125rem;
+    align-self: flex-start;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.chat .text-container small {
+    color: #969494;
 }
 
 /* #endregion */
