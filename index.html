@@ -38,7 +38,7 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
-                    <div class=" app-main">
+                    <div class="app-main">
                         <div class="notif">
                             <div class="circle circle-small">
                                 <i class="fa-solid fa-bell-slash"></i>
@@ -63,7 +63,8 @@
                                     <div class="text-container">
                                         <div>
                                             <div>{{contact.name}}</div>
-                                            <div class="last-message">{{contact.messages[contact.messages.length -
+                                            <div class="last-message">
+                                                {{contact.messages[contact.messages.length -
                                                 1].message}}</div>
                                         </div>
                                         <small>{{formatClock(contact.messages[contact.messages.length - 1])}}</small>
@@ -106,8 +107,10 @@
                         <div class="action"><i class="fa-regular fa-face-smile"></i></div>
                         <input type="text" placeholder="Scrivi un messaggio" v-model="messageText"
                             @keyup.enter="addNewSentMessage">
-                        <div v-if="messageText.length > 0" class="action"><i class="fa-solid fa-paper-plane"></i></div>
-                        <div v-else class="action"><i class="fa-solid fa-microphone"></i></div>
+                        <div v-if="messageText.length > 0" class="action" @click="addNewSentMessage"><i
+                                class="fa-solid fa-paper-plane"></i></div>
+                        <div v-else class="action"><i class="fa-solid fa-microphone"></i>
+                        </div>
                     </div>
                 </div>
                 <!--  /chat content  -->
