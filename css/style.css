@@ -178,6 +178,7 @@ body {
 }
 
 .chat .text-container {
+    height: 100%;
     padding-top: .3125rem;
     padding-right: .3125rem;
     align-self: flex-start;
@@ -187,8 +188,14 @@ body {
     align-items: flex-start;
 }
 
+.last-message,
 .chat .text-container small {
     color: #969494;
+}
+
+.last-message {
+    padding-top: .3125rem;
+    font-size: .875rem;
 }
 
 /* #endregion */
@@ -269,6 +276,11 @@ body {
     margin: 0 2.5rem;
     color: #6b7376;
     font-size: 1.25rem;
+}
+
+.app-footer i.fa-solid.fa-paper-plane {
+    font-size: 1rem;
+
 }
 
 .app-footer input {

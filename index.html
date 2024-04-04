@@ -61,7 +61,11 @@
                                         <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                                     </div>
                                     <div class="text-container">
-                                        <div>{{contact.name}}</div>
+                                        <div>
+                                            <div>{{contact.name}}</div>
+                                            <div class="last-message">{{contact.messages[contact.messages.length -
+                                                1].message}}</div>
+                                        </div>
                                         <small>{{formatClock(contact.messages[contact.messages.length - 1])}}</small>
                                     </div>
                                 </div>
@@ -79,7 +83,9 @@
                             </div>
                             <div class="text-container">
                                 <div>{{contacts[activeItem].name}}</div>
-                                <small>Ultimo accesso oggi alle {{formatClock(contacts[activeItem].messages[contacts[activeItem].messages.length - 1])}}</small>
+                                <small>Ultimo accesso oggi alle
+                                    {{formatClock(contacts[activeItem].messages[contacts[activeItem].messages.length -
+                                    1])}}</small>
                             </div>
                         </div>
                         <div class="action">
@@ -100,7 +106,8 @@
                         <div class="action"><i class="fa-regular fa-face-smile"></i></div>
                         <input type="text" placeholder="Scrivi un messaggio" v-model="messageText"
                             @keyup.enter="addNewSentMessage">
-                        <div class="action"><i class="fa-solid fa-microphone"></i></div>
+                        <div v-if="messageText.length > 0" class="action"><i class="fa-solid fa-paper-plane"></i></div>
+                        <div v-else class="action"><i class="fa-solid fa-microphone"></i></div>
                     </div>
                 </div>
                 <!--  /chat content  -->
