@@ -79,7 +79,7 @@
                             </div>
                             <div class="text-container">
                                 <div>{{contacts[activeItem].name}}</div>
-                                <small>Ultimo accesso oggi alle 12:00</small>
+                                <small>Ultimo accesso oggi alle {{formatClock(contacts[activeItem].messages[contacts[activeItem].messages.length - 1])}}</small>
                             </div>
                         </div>
                         <div class="action">
