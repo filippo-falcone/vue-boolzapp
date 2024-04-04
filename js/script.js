@@ -83,7 +83,8 @@ createApp({
         ],
       },
       ],
-      activeItem: 0
+      activeItem: 0,
+      messageText: ''
     };
   },
   methods: {
@@ -95,6 +96,17 @@ createApp({
       const clock = dateArray[1].split(':');
       const formatClock = `${clock[0]}:${clock[1]}`;
       return formatClock;
+    },
+    addNewSentMessage() {
+      const messageTextTrimmed = this.messageText.trim();
+      const newMessage = { date: '10/01/2020 15:50:00', message: messageTextTrimmed, status: 'sent' };
+      this.contacts[this.activeItem].messages.push(newMessage);
+      this.messageText = '';
+      setTimeout(this.addNewReceivedMessage, 1000);
+    },
+    addNewReceivedMessage() {
+      const newReceivedMessage = { date: '10/01/2020 15:50:00', message: 'ok', status: 'received' };
+      this.contacts[this.activeItem].messages.push(newReceivedMessage);
     }
-  }
+  },
 }).mount('#app');

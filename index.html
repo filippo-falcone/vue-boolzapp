@@ -91,7 +91,8 @@
                     </div>
                     <div class="app-footer">
                         <div class="action"><i class="fa-regular fa-face-smile"></i></div>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="messageText"
+                            @keyup.enter="addNewSentMessage">
                         <div class="action"><i class="fa-solid fa-microphone"></i></div>
                     </div>
                 </div>
