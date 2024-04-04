@@ -10,7 +10,6 @@
 /* #region GENERAL */
 body {
     height: 100vh;
-    min-width: 62.5rem;
     background: linear-gradient(to bottom,
             #009688 20%,
             #d4dbda 20%,
@@ -22,10 +21,11 @@ body {
 }
 
 .container {
+    width: 85%;
+    min-width: 62.5rem;
+    height: 100vh;
     padding: 1.5rem 0;
     margin: 0 auto;
-    width: 81.25rem;
-    height: 100vh;
 }
 
 .row,
@@ -166,6 +166,11 @@ body {
     border-bottom: .0625rem solid #f5f5f5;
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #e9ebeb;
 }
 
 /* #endregion */
@@ -206,7 +211,7 @@ body {
 }
 
 .message-container {
-    width: 51rem;
+    width: 80%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
