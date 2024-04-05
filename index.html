@@ -106,7 +106,7 @@
                                             class="fa-solid fa-chevron-down"></i></small>
                                     <div v-if="isActiveMessage" class="drop-down-content" :class="chat.status">
                                         <div>Info messaggio</div>
-                                        <div class="delete" @click="eliminateMsg(activeItem, index)">Elimina</div>
+                                        <div class="delete" @click="deleteMessage(activeItem, index)">Elimina</div>
                                     </div>
                                 </div>
                                 <small class=" time">{{formatClock(chat)}}</small>
