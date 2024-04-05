@@ -136,11 +136,8 @@ createApp({
       }
       console.log(this.isActiveMessage);
     },
-    dropUp() {
-      this.isActiveMessage = false;
-    },
     deleteMessage(activeItem, index) {
-      this.dropUp();
+      this.isActiveMessage = false;
       this.contacts[activeItem].messages.splice(index, 1);
       console.log(this.contacts[activeItem].messages);
     }
