@@ -113,7 +113,7 @@ createApp({
       const now = dt.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
       const newReceivedMessage = { date: now, message: 'ok', status: 'received' };
       this.contacts[this.activeItem].messages.push(newReceivedMessage);
-      this.isOnline = false;
+      setTimeout(this.offline, 2000);
     },
     searchContact() {
       const searchTextTrimmed = this.searchText.trim();
@@ -123,7 +123,9 @@ createApp({
     },
     online() {
       this.isOnline = true;
-      console.log(this.isOnline);
+    },
+    offline() {
+      this.isOnline = false;
     }
   }
 }).mount('#app');
