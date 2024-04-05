@@ -139,7 +139,7 @@ createApp({
     dropUp() {
       this.isActiveMessage = false;
     },
-    eliminateMsg(activeItem, index) {
+    deleteMessage(activeItem, index) {
       this.dropUp();
       this.contacts[activeItem].messages.splice(index, 1);
       console.log(this.contacts[activeItem].messages);
