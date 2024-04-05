@@ -86,7 +86,8 @@ createApp({
       ],
       activeItem: 0,
       messageText: '',
-      searchText: ''
+      searchText: '',
+      isOnline: false
     };
   },
   methods: {
@@ -105,18 +106,24 @@ createApp({
       const newMessage = { date: now, message: messageTextTrimmed, status: 'sent' };
       this.contacts[this.activeItem].messages.push(newMessage);
       this.messageText = '';
-      setTimeout(this.addNewReceivedMessage, 1000);
+      setTimeout(this.online, 1000);
+      setTimeout(this.addNewReceivedMessage, 1500);
     },
     addNewReceivedMessage() {
       const now = dt.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
       const newReceivedMessage = { date: now, message: 'ok', status: 'received' };
       this.contacts[this.activeItem].messages.push(newReceivedMessage);
+      this.isOnline = false;
     },
     searchContact() {
       const searchTextTrimmed = this.searchText.trim();
       this.contacts.forEach((contact) => {
         contact.visible = contact.name.toLowerCase().includes(searchTextTrimmed.toLowerCase());
       });
+    },
+    online() {
+      this.isOnline = true;
+      console.log(this.isOnline);
     }
   }
 }).mount('#app');
