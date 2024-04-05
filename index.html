@@ -55,7 +55,7 @@
                         </div>
                         <div class="chat-container">
                             <template v-for=" contact, index in contacts">
-                                <div v-if="contact.visible" class="chat" :class="{'active': index == activeItem} "
+                                <div v-if="contact.visible" class="chat" :class="{'active': index == activeItem}"
                                     @click="showChat(index)">
                                     <div class="circle circle-big">
                                         <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
@@ -98,9 +98,18 @@
                     </div>
                     <div class="app-main">
                         <div class="message-container">
-                            <div class="message" :class="chat.status" v-for="chat in contacts[activeItem].messages">
+                            <div class="message" :class="chat.status"
+                                v-for="chat, index in contacts[activeItem].messages">
                                 <div>{{chat.message}}</div>
-                                <small class="time">{{formatClock(chat)}}</small>
+                                <div>
+                                    <small class="drop-down" @click="dropDown"><i
+                                            class="fa-solid fa-chevron-down"></i></small>
+                                    <div v-if="isActiveMessage" class="drop-down-content" :class="chat.status">
+                                        <div>Info messaggio</div>
+                                        <div class="delete" @click="eliminateMsg(activeItem, index)">Elimina</div>
+                                    </div>
+                                </div>
+                                <small class=" time">{{formatClock(chat)}}</small>
                             </div>
                         </div>
                     </div>

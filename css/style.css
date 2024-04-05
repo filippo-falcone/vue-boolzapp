@@ -202,7 +202,6 @@ body {
 /* #endregion */
 
 /* #region CHAT CONTENT */
-
 .col-right {
     width: calc(100% - (100% / 3));
     border-left: .0625rem solid #b1b1b1;
@@ -253,14 +252,51 @@ body {
     padding-right: .5rem;
     padding-bottom: .3125rem;
     border-radius: .625rem;
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.message small {
+    color: #969494;
+}
+
+.drop-down {
+    position: absolute;
+    top: .3125rem;
+    right: .5rem;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.drop-down-content {
+    width: 50%;
+    padding: .625rem 1.25rem;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 1;
+}
+
+.drop-down-content.sent {
+    left: 45%;
+}
+
+.drop-down-content.received {
+    right: -43%;
+}
+
+.drop-down-content div {
+    font-size: .875rem;
+    cursor: pointer;
+}
+
+.drop-down-content .delete {
+    margin-top: .625rem;
+}
+
 .message .time {
     align-self: flex-end;
-    color: #969494;
 }
 
 .message.sent {
@@ -290,6 +326,13 @@ body {
     border: none;
     border-radius: .3125rem;
     flex-grow: 1;
+}
+
+/* #endregion */
+
+/* #region HOVER */
+.message .drop-down:hover {
+    opacity: 1;
 }
 
 /* #endregion */

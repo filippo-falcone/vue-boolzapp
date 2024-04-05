@@ -87,7 +87,8 @@ createApp({
       activeItem: 0,
       messageText: '',
       searchText: '',
-      isOnline: false
+      isOnline: false,
+      isActiveMessage: false,
     };
   },
   methods: {
@@ -126,6 +127,22 @@ createApp({
     },
     offline() {
       this.isOnline = false;
+    },
+    dropDown() {
+      if (!this.isActiveMessage) {
+        this.isActiveMessage = true;
+      } else if (this.isActiveMessage) {
+        this.isActiveMessage = false;
+      }
+      console.log(this.isActiveMessage);
+    },
+    dropUp() {
+      this.isActiveMessage = false;
+    },
+    eliminateMsg(activeItem, index) {
+      this.dropUp();
+      this.contacts[activeItem].messages.splice(index, 1);
+      console.log(this.contacts[activeItem].messages);
     }
   }
 }).mount('#app');
