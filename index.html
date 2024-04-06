@@ -63,11 +63,13 @@
                                     <div class="text-container">
                                         <div>
                                             <div>{{contact.name}}</div>
-                                            <div class="last-message">
+                                            <div v-if="contact.messages.length > 0" class="last-message">
                                                 {{contact.messages[contact.messages.length -
                                                 1].message}}</div>
                                         </div>
-                                        <small>{{formatClock(contact.messages[contact.messages.length - 1])}}</small>
+                                        <small
+                                            v-if="contact.messages.length > 0">{{formatClock(contact.messages[contact.messages.length
+                                            - 1])}}</small>
                                     </div>
                                 </div>
                             </template>
@@ -86,8 +88,8 @@
                                 <div>{{contacts[activeItem].name}}</div>
                                 <small v-if="isOnline">Online</small>
                                 <small v-else>Ultimo accesso oggi alle
-                                    {{formatClock(contacts[activeItem].messages[contacts[activeItem].messages.length -
-                                    1])}}</small>
+                                    {{contacts[activeItem].messages[contacts[activeItem].messages.length -
+                                    1]}}</small>
                             </div>
                         </div>
                         <div class="action">
@@ -106,7 +108,7 @@
                                             <i class="fa-solid fa-chevron-down"></i>
                                         </button>
                                         <div class="drop-down-content"
-                                            :class="[{'visible': indexMessage == ActiveMessage}, chat.status]">
+                                            :class="[{'visible': indexMessage == activeMessage}, chat.status]">
                                             <div>Info messaggio</div>
                                             <div class="delete" @click="deleteMessage(index)">Elimina</div>
                                         </div>

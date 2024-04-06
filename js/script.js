@@ -88,7 +88,7 @@ createApp({
       messageText: '',
       searchText: '',
       isOnline: false,
-      ActiveMessage: NaN
+      activeMessage: NaN
     };
   },
   methods: {
@@ -129,11 +129,11 @@ createApp({
       this.isOnline = false;
     },
     dropDown(index) {
-      this.ActiveMessage = index;
-      console.log(this.ActiveMessage);
+      this.activeMessage = index;
+      console.log(this.activeMessage);
     },
     dropUp() {
-      this.ActiveMessage = NaN;
+      this.activeMessage = NaN;
       this.isClicked = false;
     },
     deleteMessage(index) {
