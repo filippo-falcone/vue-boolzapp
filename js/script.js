@@ -88,7 +88,7 @@ createApp({
       messageText: '',
       searchText: '',
       isOnline: false,
-      isActiveMessage: false,
+      ActiveMessage: NaN
     };
   },
   methods: {
@@ -128,18 +128,17 @@ createApp({
     offline() {
       this.isOnline = false;
     },
-    dropDown() {
-      if (!this.isActiveMessage) {
-        this.isActiveMessage = true;
-      } else if (this.isActiveMessage) {
-        this.isActiveMessage = false;
-      }
-      console.log(this.isActiveMessage);
+    dropDown(index) {
+      this.ActiveMessage = index;
+      console.log(this.ActiveMessage);
     },
-    deleteMessage(activeItem, index) {
-      this.isActiveMessage = false;
-      this.contacts[activeItem].messages.splice(index, 1);
-      console.log(this.contacts[activeItem].messages);
+    dropUp() {
+      this.ActiveMessage = NaN;
+      this.isClicked = false;
+    },
+    deleteMessage(index) {
+      this.contacts[this.activeItem].messages.splice(index, 1);
+      console.log(this.contacts[this.activeItem].messages);
     }
   }
 }).mount('#app');

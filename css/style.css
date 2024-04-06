@@ -258,11 +258,14 @@ body {
     align-items: center;
 }
 
+.drop-down,
 .message small {
     color: #969494;
 }
 
 .drop-down {
+    background-color: transparent;
+    border: none;
     position: absolute;
     top: .3125rem;
     right: .5rem;
@@ -275,7 +278,12 @@ body {
     padding: .625rem 1.25rem;
     background-color: #ffffff;
     position: absolute;
+    opacity: 0;
     z-index: 1;
+}
+
+.visible {
+    opacity: 1;
 }
 
 .drop-down-content.sent {

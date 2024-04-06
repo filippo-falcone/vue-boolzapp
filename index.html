@@ -98,19 +98,22 @@
                     </div>
                     <div class="app-main">
                         <div class="message-container">
-                            <div class="message" :class="chat.status"
-                                v-for="chat, index in contacts[activeItem].messages">
-                                <div>{{chat.message}}</div>
-                                <div>
-                                    <small class="drop-down" @click="dropDown"><i
-                                            class="fa-solid fa-chevron-down"></i></small>
-                                    <div v-if="isActiveMessage" class="drop-down-content" :class="chat.status">
-                                        <div>Info messaggio</div>
-                                        <div class="delete" @click="deleteMessage(activeItem, index)">Elimina</div>
+                            <template v-for="chat, indexMessage in contacts[activeItem].messages">
+                                <div class="message" :class="chat.status">
+                                    <div>{{chat.message}}</div>
+                                    <div>
+                                        <button class="drop-down" @click="dropDown(indexMessage)" @blur="dropUp">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </button>
+                                        <div class="drop-down-content"
+                                            :class="[{'visible': indexMessage == ActiveMessage}, chat.status]">
+                                            <div>Info messaggio</div>
+                                            <div class="delete" @click="deleteMessage(index)">Elimina</div>
+                                        </div>
                                     </div>
+                                    <small class=" time">{{formatClock(chat)}}</small>
                                 </div>
-                                <small class=" time">{{formatClock(chat)}}</small>
-                            </div>
+                            </template>
                         </div>
                     </div>
                     <div class="app-footer">
