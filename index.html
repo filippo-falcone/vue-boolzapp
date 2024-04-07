@@ -87,9 +87,8 @@
                             <div class="text-container">
                                 <div>{{contacts[activeItem].name}}</div>
                                 <small v-if="isOnline">Online</small>
-                                <small v-else>Ultimo accesso oggi alle
-                                    {{contacts[activeItem].messages[contacts[activeItem].messages.length -
-                                    1]}}</small>
+                                <small v-else>Ultimo
+                                    accesso oggi alle {{lastReceivedTime()}}</small>
                             </div>
                         </div>
                         <div class="action">

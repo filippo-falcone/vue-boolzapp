@@ -88,7 +88,7 @@ createApp({
       messageText: '',
       searchText: '',
       isOnline: false,
-      activeMessage: NaN
+      activeMessage: NaN,
     };
   },
   methods: {
@@ -139,6 +139,15 @@ createApp({
     deleteMessage(index) {
       this.contacts[this.activeItem].messages.splice(index, 1);
       console.log(this.contacts[this.activeItem].messages);
+    },
+    lastReceivedTime() {
+      let formatClock;
+      this.contacts[this.activeItem].messages.forEach((message) => {
+        if (message.status === 'received') {
+          formatClock = this.formatClock(message)
+        }
+      });
+      return formatClock;
     }
   }
 }).mount('#app');
