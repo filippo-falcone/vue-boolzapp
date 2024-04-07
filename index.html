@@ -61,7 +61,7 @@
                                         <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                                     </div>
                                     <div class="text-container">
-                                        <div>
+                                        <div class="contact-message">
                                             <div>{{contact.name}}</div>
                                             <div v-if="contact.messages.length > 0" class="last-message">
                                                 {{contact.messages[contact.messages.length -
@@ -101,7 +101,7 @@
                         <div class="message-container">
                             <template v-for="chat, indexMessage in contacts[activeItem].messages">
                                 <div class="message" :class="chat.status">
-                                    <div>{{chat.message}}</div>
+                                    <div class="message-text">{{chat.message}}</div>
                                     <div>
                                         <button class="drop-down" @click="dropDown(indexMessage)" @blur="dropUp">
                                             <i class="fa-solid fa-chevron-down"></i>
@@ -109,10 +109,10 @@
                                         <div class="drop-down-content"
                                             :class="[{'visible': indexMessage == activeMessage}, chat.status]">
                                             <div>Info messaggio</div>
-                                            <div class="delete" @click="deleteMessage(index)">Elimina</div>
+                                            <div class="delete" @click="deleteMessage(indexMessage)">Elimina</div>
                                         </div>
                                     </div>
-                                    <small class=" time">{{formatClock(chat)}}</small>
+                                    <small class="time">{{formatClock(chat)}}</small>
                                 </div>
                             </template>
                         </div>
