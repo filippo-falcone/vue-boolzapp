@@ -9,11 +9,11 @@
 
 /* #region GENERAL */
 body {
-    height: 100vh;
     background: linear-gradient(to bottom,
             #009688 9.375rem,
             #d4dbda 9.375rem,
             #d4dbda 100%);
+    font-family: "Roboto", sans-serif;
 }
 
 .img {
@@ -21,10 +21,10 @@ body {
 }
 
 .container {
-    width: 85%;
+    max-width: 106.25rem;
     min-width: 62.5rem;
     height: 100vh;
-    padding: 1.5rem 0;
+    padding: 1.25rem;
     margin: 0 auto;
 }
 
@@ -206,7 +206,7 @@ body {
 
 .last-message,
 .chat .text-container small {
-    color: #969494;
+    color: #8696a0;
 }
 
 .contact-message {
@@ -231,6 +231,38 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.home-page {
+    background-color: #eaeaea;
+    color: #8696a0;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-page * {
+    width: 35rem;
+}
+
+.home-page h1 {
+    font-weight: 100;
+    text-align: center;
+}
+
+.home-page div {
+    margin-top: 1.125rem;
+    margin-bottom: 1.5625rem;
+    text-align: center;
+}
+
+.home-page button {
+    width: fit-content;
+    padding: .625rem 1.5rem;
+    border-radius: 30px;
+    background-color: #017561;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 .col-right .app-main {
@@ -368,6 +400,14 @@ body {
 /* #endregion */
 
 /* #region HOVER */
+.chat:hover {
+    background-color: #f5f6f6;
+}
+
+.chat.active {
+    background-color: #f0f2f5;
+}
+
 .message .drop-down:hover {
     opacity: 1;
 }

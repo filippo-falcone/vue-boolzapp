@@ -84,7 +84,7 @@ createApp({
         ],
       },
       ],
-      activeItem: 0,
+      activeItem: undefined,
       messageText: '',
       searchText: '',
       isOnline: false,
@@ -96,6 +96,7 @@ createApp({
   methods: {
     showChat(index) {
       this.activeItem = index;
+      console.log(this.activeItem)
     },
     formatClock(element) {
       const dateArray = element.date.split(' ');
