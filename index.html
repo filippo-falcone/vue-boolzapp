@@ -30,7 +30,7 @@
                             <div class="circle circle-small">
                                 <img src="img/avatar_io.jpg" alt="">
                             </div>
-                            <span>Filippo</span>
+                            <span></span>
                         </div>
                         <div class="action">
                             <i class="fa-solid fa-circle-notch"></i>
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="app-main">
-                        <div class="notif">
+                        <div class="notif" :class="hiddenNotif" @click="closeNotif">
                             <div class="circle circle-small">
                                 <i class="fa-solid fa-bell-slash"></i>
                             </div>
@@ -47,6 +47,7 @@
                                 <div>Ricevi notifiche di nuovi messaggi</div>
                                 <a href="#">Attiva notifiche desktop</a>
                             </div>
+                            <div class="close"><i class="fa-solid fa-xmark"></i></div>
                         </div>
                         <div class="search">
                             <button type="button" @click="searchContact"><i class="fa-solid fa-search"></i></button>

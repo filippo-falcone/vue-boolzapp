@@ -89,7 +89,8 @@ createApp({
       searchText: '',
       isOnline: false,
       activeMessage: NaN,
-      lastAccess: ''
+      lastAccess: '',
+      hiddenNotif: ''
     };
   },
   methods: {
@@ -147,6 +148,9 @@ createApp({
         }
       });
       return formatClock;
+    },
+    closeNotif() {
+      this.hiddenNotif = 'hidden';
     }
   }
 }).mount('#app');
