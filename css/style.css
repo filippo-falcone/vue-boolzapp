@@ -146,6 +146,8 @@ body {
 }
 
 .notif .close {
+    font-size: 1.25rem;
+    color: #ffffff;
     cursor: pointer;
 }
 
@@ -266,10 +268,11 @@ body {
 }
 
 .col-right .app-main {
-    padding-top: 3.625rem;
     background-image: url(../img/mine.jpg);
     flex-grow: 1;
     overflow-y: auto;
+    display: flex;
+    align-items: flex-end;
 }
 
 .app-footer {
@@ -292,7 +295,7 @@ body {
 
 .message-container {
     width: 80%;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -338,13 +341,21 @@ body {
     width: 50%;
     padding: .625rem 1.25rem;
     background-color: #ffffff;
+    border-radius: .1875rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 .3125rem .9375rem;
     position: absolute;
-    opacity: 0;
+    top: 1.25rem;
+    display: none;
     z-index: 1;
 }
 
+
 .visible {
-    opacity: 1;
+    display: block;
+}
+
+.message-container :last-child .drop-down-content {
+    top: -120%;
 }
 
 .drop-down-content.sent {
