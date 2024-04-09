@@ -120,8 +120,8 @@
                                         <button class="drop-down" @click="dropDown(indexMessage)" @blur="dropUp">
                                             <i class="fa-solid fa-chevron-down"></i>
                                         </button>
-                                        <div class="drop-down-content"
-                                            :class="[{'visible': indexMessage == activeMessage}, chat.status]">
+                                        <div v-if="indexMessage === activeMessage" class="drop-down-content"
+                                            :class="chat.status">
                                             <div>Info messaggio</div>
                                             <div class="delete" @click="deleteMessage(indexMessage)">Elimina</div>
                                         </div>
