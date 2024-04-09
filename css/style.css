@@ -58,10 +58,6 @@ body {
     cursor: pointer;
 }
 
-.text-container {
-    margin: .3125rem;
-}
-
 /* #endregion */
 
 /* #region CIRCLE */
@@ -136,6 +132,7 @@ body {
     background-color: #ffffff;
     color: #8edafc;
     font-size: 1.25rem;
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,9 +192,16 @@ body {
     cursor: pointer;
 }
 
+.chat .text-container,
+.contact-message,
+.last-message {
+    overflow-x: hidden;
+}
+
 .chat .text-container {
     height: 100%;
     padding-top: .3125rem;
+    padding-bottom: .3125rem;
     padding-right: .3125rem;
     align-self: flex-start;
     flex-grow: 1;
@@ -212,16 +216,18 @@ body {
 }
 
 .contact-message {
-    height: 1.3625rem;
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .last-message {
-    width: 250px;
-    height: 2.5rem;
     padding-top: .3125rem;
     font-size: .875rem;
-    overflow: hidden;
-    text-wrap: wrap;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* #endregion */
