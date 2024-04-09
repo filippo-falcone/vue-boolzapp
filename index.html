@@ -117,13 +117,14 @@
                                 <div class="message" :class="chat.status">
                                     <div class="message-text">{{chat.message}}</div>
                                     <div>
-                                        <button class="drop-down" @click="dropDown(indexMessage)" @blur="dropUp">
+                                        <button class="drop-down" @click="dropDown(indexMessage)">
                                             <i class="fa-solid fa-chevron-down"></i>
                                         </button>
                                         <div v-if="indexMessage === activeMessage" class="drop-down-content"
                                             :class="chat.status">
                                             <div>Info messaggio</div>
-                                            <div class="delete" @click="deleteMessage(indexMessage)">Elimina</div>
+                                            <div class="delete" @click="deleteMessage(indexMessage)">Elimina
+                                            </div>
                                         </div>
                                     </div>
                                     <small class="time">{{formatClock(chat)}}</small>

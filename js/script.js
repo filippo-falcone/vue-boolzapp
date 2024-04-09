@@ -89,7 +89,7 @@ createApp({
       messageText: '',
       searchText: '',
       isOnline: false,
-      activeMessage: NaN,
+      activeMessage: null,
       lastAccess: '',
       hiddenNotif: ''
     };
@@ -136,11 +136,11 @@ createApp({
       this.activeMessage = index;
     },
     dropUp() {
-      this.activeMessage = NaN;
-      this.isClicked = false;
+      this.activeMessage = null;
     },
     deleteMessage(index) {
       this.contacts[this.activeItem].messages.splice(index, 1);
+      this.activeMessage = null;
     },
     lastReceivedTime() {
       let formatClock;
