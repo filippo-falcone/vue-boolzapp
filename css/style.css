@@ -295,6 +295,13 @@ body {
     align-content: center;
 }
 
+.chat-user .text-container {
+    padding-left: .625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .chat-user .text-container>small {
     color: #969494;
 }
