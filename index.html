@@ -134,8 +134,8 @@
                     <div class="app-footer">
                         <div class="action"><i class="fa-regular fa-face-smile"></i></div>
                         <input type="text" placeholder="Scrivi un messaggio" v-model="messageText"
-                            @keyup.enter="addNewSentMessage">
-                        <div v-if="messageText.length > 0" class="action" @click="addNewSentMessage"><i
+                            @keyup.enter="addNewSentMessage(activeItem)">
+                        <div v-if="messageText.length > 0" class="action" @click="addNewSentMessage(activeItem)"><i
                                 class="fa-solid fa-paper-plane"></i></div>
                         <div v-else class="action"><i class="fa-solid fa-microphone"></i>
                         </div>

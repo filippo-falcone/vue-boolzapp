@@ -85,6 +85,7 @@ createApp({
       },
       ],
       activeItem: undefined,
+      thisChat: '',
       messageText: '',
       searchText: '',
       isOnline: false,
@@ -103,11 +104,12 @@ createApp({
       const formatClock = `${clock[0]}:${clock[1]}`;
       return formatClock;
     },
-    addNewSentMessage() {
+    addNewSentMessage(activeItem) {
       const messageTextTrimmed = this.messageText.trim();
       const now = dt.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
       const newMessage = { date: now, message: messageTextTrimmed, status: 'sent' };
-      this.contacts[this.activeItem].messages.push(newMessage);
+      this.thisChat = activeItem;
+      this.contacts[this.thisChat].messages.push(newMessage);
       this.messageText = '';
       setTimeout(this.online, 1000);
       setTimeout(this.addNewReceivedMessage, 1500);
@@ -115,7 +117,7 @@ createApp({
     addNewReceivedMessage() {
       const now = dt.now().setLocale('fr').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
       const newReceivedMessage = { date: now, message: 'ok', status: 'received' };
-      this.contacts[this.activeItem].messages.push(newReceivedMessage);
+      this.contacts[this.thisChat].messages.push(newReceivedMessage);
       setTimeout(this.offline, 2000);
     },
     searchContact() {
